@@ -18,3 +18,33 @@ puts "La ou les crypto qui ont la plus petite valeur  #{my_hash2.key(my_hash2.va
 
 c=array_devise.grep(/coin/)
 puts "Le nombre de crypto contenant le mots coin est #{c.length}"
+ 
+
+
+indice_recherche=[]
+t=0
+a=0
+indice=0
+max=msd[0]
+for i in msd
+  if i.to_i<6000
+    indice_recherche[a]=t
+    a=a+1
+  end
+  if msd[t]>max 
+    indice=t
+  end
+  t=t+1
+end
+
+puts "Les devises, dont le cours est inférieur à 6000 sont "
+puts"taper entrer pour afficher les devise <6000"
+m=gets.chomp
+for u in indice_recherche
+   puts array_devise[u]
+end
+
+
+puts "La devise la plus chère parmi celles dont le cours est inférieur à 6000.#{array_devise[indice]}"
+
+
