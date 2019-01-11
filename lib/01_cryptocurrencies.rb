@@ -8,3 +8,13 @@ array_prix=["$6558.07", "$468.95", "$0.487526", "$762.84", "$8.86", "$85.26", "$
  
 
 my_hash=Hash[array_devise.zip(array_prix)]
+msd=[]
+array_prix.each{|x| msd<<("((#{x}))".delete '($)').to_f}
+my_hash2=Hash[array_devise.zip(msd)]
+
+puts "La ou les crypto qui ont la plus grosse valeur #{my_hash2.key(my_hash2.values.max)}"
+puts "La ou les crypto qui ont la plus petite valeur  #{my_hash2.key(my_hash2.values.min)}"
+
+
+c=array_devise.grep(/coin/)
+puts "Le nombre de crypto contenant le mots coin est #{c.length}"
